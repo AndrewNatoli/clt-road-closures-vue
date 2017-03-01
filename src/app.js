@@ -1,7 +1,8 @@
-import Vue from '../node_modules/vue/dist/vue.js';
 import ClosureFeed from './components/ClosureFeed.vue';
 
-new Vue({
+Vue.extend(require('vue-resource'));
+var vm = new Vue({
   el: '#app',
-  components: { ClosureFeed }
+  components: { ClosureFeed },
+  template: '<closure-feed></closure-feed>'
 });
