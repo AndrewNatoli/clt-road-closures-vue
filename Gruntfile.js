@@ -2,7 +2,7 @@ module.exports = function (grunt)
 {
 
   var jsFiles = [
-    './node_modules/vue/dist/vue.js',
+    './node_modules/vue/dist/vue.min.js',
     './build/vue.js'
   ];
 
@@ -46,9 +46,48 @@ module.exports = function (grunt)
       },
       dist: {
         src: jsFiles,
-        dest: './dist/scripts.js'
+        dest: './dist/assets/scripts.js'
       }
-    }
+    },
+    copy: {
+      main: {
+        files: [
+          {
+            src: './src/index.html',
+            dest: './dist/index.html'
+          },
+          {
+            expand: true,
+            cwd: './src',
+            src: ['./data/**'],
+            dest: './dist/'
+          }
+        ]
+      }
+    },
+    watch: {
+      scripts: {
+        files: ['./src/**/*.js', './src/**/*.vue'],
+        tasks: ['js'],
+        options: {
+          spawn: false,
+        },
+      },
+      static: {
+        files: ['./src/data/*', './src/index.html', './src/assets/*'],
+        tasks: ['static'],
+        options: {
+          spawn: false,
+        },
+      },
+      styles: {
+        files: ['./src/**/*.less'],
+        tasks: ['css'],
+        options: {
+          spawn: false,
+        },
+      },
+    },
   };
 
   grunt.initConfig(config);
@@ -57,6 +96,7 @@ module.exports = function (grunt)
 
   grunt.registerTask('css', ['less', 'cssmin']);
   grunt.registerTask('js', ['browserify', 'concat']);
-  grunt.registerTask('default', ['css', 'js']);
+  grunt.registerTask('static', ['copy']);
+  grunt.registerTask('default', ['css', 'js', 'static']);
 
 };
