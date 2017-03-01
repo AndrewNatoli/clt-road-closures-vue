@@ -1,6 +1,14 @@
 <template>
   <div>
-    <closure-card v-for="record in records" :record="record"></closure-card>
+    <button class="btn btn-primary btn-toggle" v-on:click="toggleShowExpired">
+      <span v-if="showExpired">
+        Hide Expired Closures
+      </span>
+      <span v-else>
+        Show Expired Closures
+      </span>
+    </button>
+    <closure-card v-for="record in filteredRecords" :record="record"></closure-card>
   </div>
 </template>
 
@@ -12,14 +20,17 @@
     components: { ClosureCard },
     data: function () {
       return {
-        biscuit: [],
-        records: []
+        records: [],
+        showExpired: false
       }
     },
     mounted: function () {
       this.fetchFeed();
     },
     methods: {
+      toggleShowExpired: function () {
+        this.showExpired = !this.showExpired;
+      },
       fetchFeed: function () {
         var self = this;
         Vue.http.get('./data/example.json')
@@ -30,6 +41,23 @@
             console.log("Error here :(");
           }
         );
+      }
+    },
+    computed: {
+      filteredRecords: function () {
+        var now = Date.now();
+        var self = this;
+        return this.records.filter(function (record) {
+          if (!self.showExpired)
+          {
+            var end = new Date(record.properties.ENDDATE).getTime()
+            return (now < end);
+          }
+          else
+          {
+            return true;
+          }
+        })
       }
     }
   }
