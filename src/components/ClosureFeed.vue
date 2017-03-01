@@ -1,12 +1,7 @@
 <template>
   <div>
     <button class="btn btn-primary btn-toggle" v-on:click="toggleShowExpired">
-      <span v-if="showExpired">
-        Hide Expired Closures
-      </span>
-      <span v-else>
-        Show Expired Closures
-      </span>
+      {{showExpiredLabel}}
     </button>
     <closure-card v-for="record in filteredRecords" :record="record"></closure-card>
   </div>
@@ -48,16 +43,19 @@
         var now = Date.now();
         var self = this;
         return this.records.filter(function (record) {
+
           if (!self.showExpired)
           {
             var end = new Date(record.properties.ENDDATE).getTime()
             return (now < end);
           }
-          else
-          {
-            return true;
-          }
+
+          return true;
+
         })
+      },
+      showExpiredLabel: function () {
+        return (this.showExpired) ? "Hide Expired Closures" : "Show Expired Closures";
       }
     }
   }

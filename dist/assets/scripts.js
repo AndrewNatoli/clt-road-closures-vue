@@ -12925,7 +12925,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-8cf0c6b4", __vue__options__)
   } else {
-    hotAPI.rerender("data-v-8cf0c6b4", __vue__options__)
+    hotAPI.reload("data-v-8cf0c6b4", __vue__options__)
   }
 })()}
 },{"moment":2,"vue":6,"vue-hot-reload-api":4}],9:[function(require,module,exports){
@@ -12972,13 +12972,17 @@ exports.default = {
       var now = Date.now();
       var self = this;
       return this.records.filter(function (record) {
+
         if (!self.showExpired) {
           var end = new Date(record.properties.ENDDATE).getTime();
           return now < end;
-        } else {
-          return true;
         }
+
+        return true;
       });
+    },
+    showExpiredLabel: function showExpiredLabel() {
+      return this.showExpired ? "Hide Expired Closures" : "Show Expired Closures";
     }
   }
 };
@@ -12986,7 +12990,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('button',{staticClass:"btn btn-primary btn-toggle",on:{"click":_vm.toggleShowExpired}},[(_vm.showExpired)?_c('span',[_vm._v("\n      Hide Expired Closures\n    ")]):_c('span',[_vm._v("\n      Show Expired Closures\n    ")])]),_vm._v(" "),_vm._l((_vm.filteredRecords),function(record){return _c('closure-card',{attrs:{"record":record}})})],2)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('button',{staticClass:"btn btn-primary btn-toggle",on:{"click":_vm.toggleShowExpired}},[_vm._v("\n    "+_vm._s(_vm.showExpiredLabel)+"\n  ")]),_vm._v(" "),_vm._l((_vm.filteredRecords),function(record){return _c('closure-card',{attrs:{"record":record}})})],2)}
 __vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
