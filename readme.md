@@ -13,6 +13,7 @@ I started building this using PHP's internal server but switched to ExpressJS be
 ```
 git clone
 npm install
+grunt
 node express.js
 ```
 
