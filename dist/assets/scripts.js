@@ -12879,8 +12879,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Vue.extend(require('vue-resource'));
 var vm = new Vue({
   el: '#app',
-  components: { ClosureFeed: _ClosureFeed2.default },
-  template: '<closure-feed></closure-feed>'
+  components: { ClosureFeed: _ClosureFeed2.default }
 });
 
 },{"./components/ClosureFeed.vue":9,"vue-resource":5}],8:[function(require,module,exports){
@@ -12916,7 +12915,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"jumbotron"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-xs-12 col-md-8"},[_c('h2',[_vm._v("\n        "+_vm._s(_vm.record.properties.BLOCKNM)+"\n        "),(_vm.record.properties.LOCDESC)?_c('small',[_c('br'),_vm._v("\n          "+_vm._s(_vm.record.properties.LOCDESC)+"\n        ")]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"col-xs-12 col-md-4"},[(_vm.record.properties.STARTDATE)?_c('h3',[_vm._v("\n      From "+_vm._s(_vm._f("formatDate")(_vm.record.properties.STARTDATE))+" -\n      "),_c('br'),_vm._v("\n      "+_vm._s(_vm._f("formatDate")(_vm.record.properties.ENDDATEindex))+"\n    ")]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-xs-12 col-md-8"},[_c('h3',[_vm._v("\n        "+_vm._s(_vm.record.properties.BLOCKTYPE)+"\n        "),(_vm.record.properties.COMMENT)?_c('small',[_c('br'),_vm._v("\n          "+_vm._s(_vm.record.properties.comment)+"\n        ")]):_vm._e()])]),_vm._v(" "),(_vm.record.properties.Hyperlink)?_c('div',{staticClass:"col-xs-12 col-md-4"},[_c('h3',[_vm._v("\n        More Information "),_c('br'),_vm._v(" "),_c('small',[_c('a',{attrs:{"href":_vm.record.properties.Hyperlink,"target":"_blank","rel":"noreferrer nofollow"}},[_vm._v("\n            Click\n          ")])])])]):_vm._e()]),_vm._v(" "),(_vm.record.properties.ALTROUTE)?_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-xs-12 col-md-8"},[_c('h3',[_vm._v("\n        Alternate Route "),_c('br'),_vm._v(" "),_c('small',[_vm._v("\n          "+_vm._s(_vm.record.properties.ALTROUTE)+"\n        ")])])])]):_vm._e()])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"jumbotron"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-xs-12 col-md-8"},[_c('h2',[_vm._v("\n        "+_vm._s(_vm.record.properties.BLOCKNM)+"\n        "),(_vm.record.properties.LOCDESC)?_c('small',[_c('br'),_vm._v("\n          "+_vm._s(_vm.record.properties.LOCDESC)+"\n        ")]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"col-xs-12 col-md-4"},[(_vm.record.properties.STARTDATE)?_c('h3',[_vm._v("\n      From "+_vm._s(_vm._f("formatDate")(_vm.record.properties.STARTDATE))+" -\n      "),_c('br'),_vm._v("\n      "+_vm._s(_vm._f("formatDate")(_vm.record.properties.ENDDATE))+"\n    ")]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-xs-12 col-md-8"},[_c('h3',[_vm._v("\n        "+_vm._s(_vm.record.properties.BLOCKTYPE)+"\n        "),(_vm.record.properties.COMMENT)?_c('small',[_c('br'),_vm._v("\n          "+_vm._s(_vm.record.properties.comment)+"\n        ")]):_vm._e()])]),_vm._v(" "),(_vm.record.properties.Hyperlink)?_c('div',{staticClass:"col-xs-12 col-md-4"},[_c('h3',[_vm._v("\n        More Information "),_c('br'),_vm._v(" "),_c('small',[_c('a',{attrs:{"href":_vm.record.properties.Hyperlink,"target":"_blank","rel":"noreferrer nofollow"}},[_vm._v("\n            Click\n          ")])])])]):_vm._e()]),_vm._v(" "),(_vm.record.properties.ALTROUTE)?_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-xs-12 col-md-8"},[_c('h3',[_vm._v("\n        Alternate Route "),_c('br'),_vm._v(" "),_c('small',[_vm._v("\n          "+_vm._s(_vm.record.properties.ALTROUTE)+"\n        ")])])])]):_vm._e()])}
 __vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -12925,7 +12924,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-8cf0c6b4", __vue__options__)
   } else {
-    hotAPI.reload("data-v-8cf0c6b4", __vue__options__)
+    hotAPI.rerender("data-v-8cf0c6b4", __vue__options__)
   }
 })()}
 },{"moment":2,"vue":6,"vue-hot-reload-api":4}],9:[function(require,module,exports){
@@ -12999,7 +12998,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-a2d5df98", __vue__options__)
   } else {
-    hotAPI.reload("data-v-a2d5df98", __vue__options__)
+    hotAPI.rerender("data-v-a2d5df98", __vue__options__)
   }
 })()}
 },{"../components/ClosureCard.vue":8,"vue":6,"vue-hot-reload-api":4}]},{},[7]);
